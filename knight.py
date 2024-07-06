@@ -24,7 +24,7 @@ class Knight:
     if not self.remain:
       print("*** First search ***")
       mem_maps = check_output(["pmap", "-x", str(self.pid)]).decode('utf-8').splitlines()
-      pattern = r'^([0-9a-f]+)\s+(\d+)\s+(\d+)\s+(\d+)\s+rw.p*'
+      pattern = r'^([0-9a-f]+)\s+(\d+)\s+(\d+)\s+(\d+)\s+rw.[^s].*'
       for line in mem_maps:
         m = re.match(pattern, line)
         if not m:
